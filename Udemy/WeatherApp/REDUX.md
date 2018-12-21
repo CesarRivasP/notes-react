@@ -60,4 +60,6 @@ En vez de hacer el dispatch de una acción directamente, se llama a un actionCre
 
 * El type es el identificador de la acción y este en la parte del reducer se va a utilizar para catalogar que se debe hacer ante una accion.
 Se genera una accion.
-La accion genera una modificacion
+La accion genera una modificacion (Solicitud de modificación en el reducer de alguna parte del estado), por lo que hay que reaccionar ante eso.
+Para reaccionar adecuadamente hay que generar una constante para el 'type' y no usando el literal (nombre de la funcion), ya que se corre el riesgo de que hayan typos (errores en la escritura).
+Las constantes se suelen poner en mayúsculas (por convencion) y los nombres de las acciones tambien se suelen poner de la misma forma que la constante.

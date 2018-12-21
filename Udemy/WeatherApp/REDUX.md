@@ -80,3 +80,19 @@ Siempre las importaciones de las librerías van arriba de las importaciones de a
 
 Provider
 Se encarga de proveer del store a los componentes que viven en nuestra aplicacion de manera que tengan disponible el store.
+Los componetes internos van a tener acceso al store sin necesita de importar el componente 'store' en cada uno de los componentes de manera explicita.
+
+Componente 'connect'
+Lo provee react-redux, este sirve para conectar las dos librerías (react y redux).
+Se debe utilizar sobre cada componente al cual se le quiera dar acceso al 'store', de manera que 'envuelve' al componente, y lo provee de las características extra, la capacidad de acceder al store.
+Es una función que su vez espera dos funciones, la segunda función va a ser una función que nos permita trabajar con las acciones (mapDispatchToProps o 'mapDispatchToPropsActions')
+La función connect va a retornar otra función, y esa otra función espera que se le pase como parámetro el componente que se esta generando.
+// funcion que retorna otra funcion connect()(componente)
+
+Una vez realizados los pasos anteriores, el componente a exportar ahora no va a ser app.js (por ejemplo), sino va a ser el app.js resultante de la conexion.
+Va a ser el componente con habilidad de conectarse con el store.
+Una realizado el export del 'nuevo' componente ya no se tiene acceso al store de la misma manera, por lo que la funcion mapDispatchToPropsActions va recibir como parametro el dispatch, que a su vez va a esperar que le retornemos un objeto que va a tener las funciones que posteriormente se van a invocar para hacer la creacion de las acciones.
+Ahora:
+Se coloca una propiedad que nos permita invocar a la función
+Se le coloca value como parametro.
+Se invoca el dispatch, y se le pasa por parametro el actionCreator 'setCity', y a este se le pasa el value.

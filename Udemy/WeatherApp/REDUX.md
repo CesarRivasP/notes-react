@@ -40,26 +40,35 @@ Es un método que ayuda a disparar una acción.
 
 * Instalación de Redux
 - La libreria core de redux es independiente de React, ya que redux esta intencionadamente separado de React. Esta pensado para que pueda ser utilizado con Javascript plano, u otro framework visual como Angular, por decir alguno.
-- La libreria react-redux es la que realiza la vinculacion entre los dos frameworks.
+- La librería react-redux es la que realiza la vinculación entre los dos frameworks.
 
 * Inicio
 - createStore va a generar el store, que es el lugar donde se va a poner todo el estado de la aplicación.
--  La funcion createStore espera como parametro a un 'reducer'.
+-  La función createStore espera como parámetro a un 'reducer'.
 
 - Una action es un objeto que viene identificado por un 'type'(nombre que identifica el tipo de acción), y se le pasa como valor el dato que se esta cambiando.
 
-- Se debe abstraer lo maximo posible la logica del dispatch de las acciones, o la lógica de modificación del store.
+- Se debe abstraer lo máximo posible la lógica del dispatch de las acciones, o la lógica de modificación del store.
 - Toda la manipulación del estado debe quedar por fuera del componente.
 - Se debe alejar el componente del manejo del estado (lo que esta en el store).
 
-- En vez de hacer un dispatch directo de la accion, se puede hacer un action creator.
-- El action creator es una funcion que se le pasa al dispatch para luego ser utilizada.
+- En vez de hacer un dispatch directo de la acción, se puede hacer un action creator.
+- El action creator es una función que se le pasa al dispatch para luego ser utilizada.
 Nota:
 En vez de hacer el dispatch de una acción directamente, se llama a un actionCreator. De esta manera estandarizamos la forma en que se llaman a la acciones y también se le proporciona un nombre a esa acción.
 
 
-* El type es el identificador de la acción y este en la parte del reducer se va a utilizar para catalogar que se debe hacer ante una accion.
-Se genera una accion.
-La accion genera una modificacion (Solicitud de modificación en el reducer de alguna parte del estado), por lo que hay que reaccionar ante eso.
-Para reaccionar adecuadamente hay que generar una constante para el 'type' y no usando el literal (nombre de la funcion), ya que se corre el riesgo de que hayan typos (errores en la escritura).
-Las constantes se suelen poner en mayúsculas (por convencion) y los nombres de las acciones tambien se suelen poner de la misma forma que la constante.
+* El type es el identificador de la acción y este en la parte del reducer se va a utilizar para catalogar que se debe hacer ante una acción.
+Se genera una acción.
+La acción genera una modificación (Solicitud de modificación en el reducer de alguna parte del estado), por lo que hay que reaccionar ante eso.
+Para reaccionar adecuadamente hay que generar una constante para el 'type' y no usando el literal (nombre de la función), ya que se corre el riesgo de que hayan typos (errores en la escritura).
+Las constantes se suelen poner en mayúsculas (por convención) y los nombres de las acciones también se suelen poner de la misma forma que la constante.
+
+Store
+Este también debe estar en una carpeta separada, de manera que no se confunda con los componentes que utiliza el store.
+Ademas, este no debe estar asociado a ningún componente.
+El store es único, pero se controla el acceso y se divide de acuerdo a quien lo necesita mediante el uso de los Reducers y se modifica mediante las acciones.
+
+React-Redux
+Esta librería nos permite abstraernos de la utilización directa del store. Dicho eso, siempre van a haber clases intermediarias que van a terminar invocando el store.
+Esto genera un mayor desacoplamiento, pero a la vez que desacoplamos y modularizamos el código también se le agrega complejidad al entendimiento de lo que se esta realizando.

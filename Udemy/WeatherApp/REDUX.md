@@ -72,3 +72,11 @@ El store es único, pero se controla el acceso y se divide de acuerdo a quien lo
 React-Redux
 Esta librería nos permite abstraernos de la utilización directa del store. Dicho eso, siempre van a haber clases intermediarias que van a terminar invocando el store.
 Esto genera un mayor desacoplamiento, pero a la vez que desacoplamos y modularizamos el código también se le agrega complejidad al entendimiento de lo que se esta realizando.
+
+- Para generar la vinculación antes comentada, se realiza dentro del punto de generación de la aplicación (index.js), donde se invoca al punto root, donde se monta toda la aplicación, se pasa el componente principal directamente que es donde vive la aplicación, allí es donde se va a generar el punto en el que se va a invocar a 'react-redux'.
+
+Nota:
+Siempre las importaciones de las librerías van arriba de las importaciones de archivos que hayan sido generados por nosotros.
+
+Provider
+Se encarga de proveer del store a los componentes que viven en nuestra aplicacion de manera que tengan disponible el store.

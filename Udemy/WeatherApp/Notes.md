@@ -376,3 +376,6 @@ Cualquiera de estos tres eventos genera la re-renderizacion del componente y una
 1.- Los react elements que son componentes nativos y componentes de usuarios extendidos de Component JSX.
 2.- Se pueden renderizar como nodos de texto tanto strings como numeros.
 3.- Si se necesita algún componente que no renderice en ningún tipo de HTML element, podemos renderizar con Null o false.
+
+High Order Components
+Los high order components son funciones que toman como parámetro un componente, y retornan otro con alguna mejora o modificación. Se suelen utilizar para solucionar aspectos transversales de la aplicación.

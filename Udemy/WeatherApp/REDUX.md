@@ -39,7 +39,7 @@ Es un método que ayuda a disparar una acción.
 
 
 * Instalación de Redux
-- La libreria core de redux es independiente de React, ya que redux esta intencionadamente separado de React. Esta pensado para que pueda ser utilizado con Javascript plano, u otro framework visual como Angular, por decir alguno.
+- La librería core de redux es independiente de React, ya que redux esta intencionadamente separado de React. Esta pensado para que pueda ser utilizado con Javascript plano, u otro framework visual como Angular, por decir alguno.
 - La librería react-redux es la que realiza la vinculación entre los dos frameworks.
 
 * Inicio
@@ -79,20 +79,30 @@ Nota:
 Siempre las importaciones de las librerías van arriba de las importaciones de archivos que hayan sido generados por nosotros.
 
 Provider
-Se encarga de proveer del store a los componentes que viven en nuestra aplicacion de manera que tengan disponible el store.
-Los componetes internos van a tener acceso al store sin necesita de importar el componente 'store' en cada uno de los componentes de manera explicita.
+Se encarga de proveer del store a los componentes que viven en nuestra aplicación de manera que tengan disponible el store.
+Los componentes internos van a tener acceso al store sin necesita de importar el componente 'store' en cada uno de los componentes de manera explicita.
 
 Componente 'connect'
 Lo provee react-redux, este sirve para conectar las dos librerías (react y redux).
 Se debe utilizar sobre cada componente al cual se le quiera dar acceso al 'store', de manera que 'envuelve' al componente, y lo provee de las características extra, la capacidad de acceder al store.
 Es una función que su vez espera dos funciones, la segunda función va a ser una función que nos permita trabajar con las acciones (mapDispatchToProps o 'mapDispatchToPropsActions')
 La función connect va a retornar otra función, y esa otra función espera que se le pase como parámetro el componente que se esta generando.
-// funcion que retorna otra funcion connect()(componente)
+// función que retorna otra función -> connect()(componente)
 
-Una vez realizados los pasos anteriores, el componente a exportar ahora no va a ser app.js (por ejemplo), sino va a ser el app.js resultante de la conexion.
+Una vez realizados los pasos anteriores, el componente a exportar ahora no va a ser app.js (por ejemplo), sino va a ser el app.js resultante de la conexión.
 Va a ser el componente con habilidad de conectarse con el store.
-Una realizado el export del 'nuevo' componente ya no se tiene acceso al store de la misma manera, por lo que la funcion mapDispatchToPropsActions va recibir como parametro el dispatch, que a su vez va a esperar que le retornemos un objeto que va a tener las funciones que posteriormente se van a invocar para hacer la creacion de las acciones.
+Una realizado el export del 'nuevo' componente ya no se tiene acceso al store de la misma manera, por lo que la función mapDispatchToPropsActions va recibir como parámetro el dispatch, que a su vez va a esperar que le retornemos un objeto que va a tener las funciones que posteriormente se van a invocar para hacer la creación de las acciones.
 Ahora:
 Se coloca una propiedad que nos permita invocar a la función
-Se le coloca value como parametro.
-Se invoca el dispatch, y se le pasa por parametro el actionCreator 'setCity', y a este se le pasa el value.
+Se le coloca value como parámetro.
+Se invoca el dispatch, y se le pasa por parámetro el actionCreator 'setCity', y a este se le pasa el value.
+
+- La funcion connect toma el componente, lo modifica, y genera un componente modificado (conectado al store).
+
+Nota:
+Este tipo de transformaciones, funciones que transforman un componente y retornan otro con algún enhancement se llaman 'HIGH ORDER COMPONENTS'.
+Los high order components son funciones que toman como parámetro un componente, y retornan otro con alguna mejora o modificación. Se suelen utilizar para solucionar aspectos transversales de la aplicación.
+
+El dispatch esta disponible gracias a que se esta pasando el store en el provider, y viene a través del connect.
+**Con el dispatch llamamos al actionCreator**.
+El objeto que genera mapDispatchToProps tiene una propiedad, esa propiedad tiene una función que espera un parámetro (de acuerdo a lo que se quiera definir). Entonces, lo que estamos mapeando es el dispatchToProps, esto quiere decir que el objeto que se esta retornando tiene una función (los objetos pueden tener propiedades que son del tipo función), esa función tiene un solo parámetro, para luego pasarle el dispatch con el actionCreator y a este asignándole un valor.

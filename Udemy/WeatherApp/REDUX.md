@@ -75,6 +75,8 @@ Esto genera un mayor desacoplamiento, pero a la vez que desacoplamos y modulariz
 
 - Para generar la vinculación antes comentada, se realiza dentro del punto de generación de la aplicación (index.js), donde se invoca al punto root, donde se monta toda la aplicación, se pasa el componente principal directamente que es donde vive la aplicación, allí es donde se va a generar el punto en el que se va a invocar a 'react-redux'.
 
+- Al createStore se le pasa como primer parámetro una función la cual es el Reducer, y como segundo recibe el estado inicial de la aplicación. Como tercero se le pasa el plugin que lo vincula con chrome.
+
 Nota:
 Siempre las importaciones de las librerías van arriba de las importaciones de archivos que hayan sido generados por nosotros.
 
@@ -106,3 +108,14 @@ Los high order components son funciones que toman como parámetro un componente,
 El dispatch esta disponible gracias a que se esta pasando el store en el provider, y viene a través del connect.
 **Con el dispatch llamamos al actionCreator**.
 El objeto que genera mapDispatchToProps tiene una propiedad, esa propiedad tiene una función que espera un parámetro (de acuerdo a lo que se quiera definir). Entonces, lo que estamos mapeando es el dispatchToProps, esto quiere decir que el objeto que se esta retornando tiene una función (los objetos pueden tener propiedades que son del tipo función), esa función tiene un solo parámetro, para luego pasarle el dispatch con el actionCreator y a este asignándole un valor.
+
+
+- Las transiciones entre estados de la aplicación se realizan mediante actions.
+- El estado de la aplicación va a ser manejado tanto por el store como por los reducers
+
+Nota:
+Aunque se generen acciones, si ha estas no se le establece un estado inicial y tampoco se implementa un reducer para que retorne un estado, no se esta manteniendo un estado en la aplicación, por lo que el estado va a permanecer como undefined.
+
+Reducers
+El reducer es una función que recibe dos parámetros, el primero es el estado de la aplicación y el segundo son las acciones que se van generando. Con estos dos parámetros se genera un nuevo estado.
+- Los reducers son funciones puras

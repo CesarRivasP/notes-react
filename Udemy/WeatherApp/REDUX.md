@@ -119,3 +119,17 @@ Aunque se generen acciones, si ha estas no se le establece un estado inicial y t
 Reducers
 El reducer es una función que recibe dos parámetros, el primero es el estado de la aplicación y el segundo son las acciones que se van generando. Con estos dos parámetros se genera un nuevo estado.
 - Los reducers son funciones puras
+- En el  action que recibe el reducer se va a evaluar el 'type', que es lo que describe el tipo de acción , nombre de la acción. En base a ese nombre de la acción, en el switch se va a revisar si un determinado reducer tiene que hacer algo por esa acción, y de hacerlo, va a generar un nuevo objeto que va a ser el nuevo objeto que va a ser correspondiente al nuevo estado.
+Si no corresponde al tipo de acción al que un reducer deba reaccionar, se retorna el estado por defecto.
+
+El reducer en general, debe actuar solamente sobre una acción. Cuanto mas sencillo sea el reducer, mas sencillo es el manejo del estado.
+- Pueden haber reducers que atiendan a varias acciones
+- Pueden haber múltiples reducers en los que cada uno de ellos atiendan a cada una de las acciones
+
+Ejemplo:
+Reducer 'City'
+Mediante el spread operator se desglosa el estado inicial, y si existe la propiedad 'city', se modifica el valor por el valor que viene en el payload, sino existe la propiedad 'city', se agrega el valor de payload al objeto inicial.
+También se puede agregar un valor por defecto al state en caso de que el state que llega el reductor sea nulo, con la convención de 'export const city = (state, action) => {' por 'export const city = (state = {}, action) => {' nos aseguramos de establecer un valor por defecto. Esa es una característica de ecmascript, que nos permite asignar valores por defecto a parámetros de funciones
+
+* Lo que genera el reductor es una copia del estado con una propiedad alterada (modificada).
+Dicho esto, se logra una de las principales premisas de redux, que es generar estado inmutable que va transicionando mediante la ejecución de acciones.

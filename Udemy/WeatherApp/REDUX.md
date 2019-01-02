@@ -133,3 +133,14 @@ También se puede agregar un valor por defecto al state en caso de que el state 
 
 * Lo que genera el reductor es una copia del estado con una propiedad alterada (modificada).
 Dicho esto, se logra una de las principales premisas de redux, que es generar estado inmutable que va transicionando mediante la ejecución de acciones.
+
+* Una de las premisas básicas de los reducers es que deben ser funciones puras
+  Las funciones puras son funciones que dependen solamente de los parámetros que se le están pasando como parámetros de entrada. El retorno de la función solo depende de los valores que le pasamos, por lo que no depende de ningún estado intermedio de la aplicación, no depende de un acceso a una base de datos, de una respuesta de un http request. No depende de ningún tipo de valor externo mas allá de los parámetros que se le están pasando.
+  También, no deben alterarse los valores que se reciben por parámetros. Por lo que no se genera side effects 'efectos colaterales'.
+  Nota:
+    - No se debe altera el estado  
+        state.prop = 'nuevo valor'
+
+      * Se puede hacer una copia de lo que llega como parámetro
+        { ...state, prop: 'nuevo valor'}
+      - Para que el reducer sea una pure function solo tiene que responder a los valores que se le pasan como parámetros. Ningún otro estado de la aplicación debería afectar el resultado del reducer, y a su vez no se debe generar ningún tipo de side effect. Por eso no se alteran los objetos que no son pasados como parámetros, sino que se hace una copia de estos.

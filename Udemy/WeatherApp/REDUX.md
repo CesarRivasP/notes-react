@@ -158,3 +158,8 @@ Middlwares
 Son estructuras que se adosan al store al realizar el createStore. Al agregarle el Middlware, este se estaria interponiendo entre cada una de las acciones que vamos generando, y nos brinda de una capacidad extendida a lo que nos brinda por defecto redux.
 Hay Middlwares que favorecen el logeo de la app, otros que atienden a eventos asincronos.
 El Middlware a utlizar va a ser de los que favorecen eventos asincronos, y este va a ser 'redux thunk'.
+
+Nota:
+- Si se aplica el uso Middlwares, se debe cambiar la forma en la que se invoca la extensión de devtools para redux.
+Para redux extension tambien se debera aplicar 'compose'.
+- Para utilizar middlwares se necesita ademas del 'createStore', el 'applyMiddleware'.

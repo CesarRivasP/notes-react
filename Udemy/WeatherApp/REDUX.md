@@ -168,3 +168,7 @@ El middleware internamente es una funcion que va a ser invocada repetidas veces 
 
 Nota:
 En realidad utilizar redux no cambia la necesidad de realizar dos request sobre el servidor. El hecho de incorporar redux hace que manejemos de una forma más predecible y unificada el estado de la aplicación, pero no modifica otras cosas. Igualmente, redux-thunk nos brinda una forma de manejar acciones asíncronas, tal como son las promises, entre las que podemos contar al "fetch", para ir a buscar los datos al servidor.
+
+
+combineReducers
+Es una funcion que espera como parametro un objeto, el cual va a tener los nombres de los reducers a utilizar.

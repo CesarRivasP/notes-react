@@ -163,3 +163,5 @@ Nota:
 - Si se aplica el uso Middlwares, se debe cambiar la forma en la que se invoca la extensión de devtools para redux.
 Para redux extension tambien se debera aplicar 'compose'.
 - Para utilizar middlwares se necesita ademas del 'createStore', el 'applyMiddleware'.
+
+El middleware internamente es una funcion que va a ser invocada repetidas veces por el core de redux, en el cual cuando se genera una accion nueva, invoca al middleware para ver si hay que realizar un procesamiento sobre esa acción.

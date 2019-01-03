@@ -152,3 +152,9 @@ Dicho esto, se logra una de las principales premisas de redux, que es generar es
       * Se puede hacer una copia de lo que llega como parámetro
         { ...state, prop: 'nuevo valor'}
       - Para que el reducer sea una pure function solo tiene que responder a los valores que se le pasan como parámetros. Ningún otro estado de la aplicación debería afectar el resultado del reducer, y a su vez no se debe generar ningún tipo de side effect. Por eso no se alteran los objetos que no son pasados como parámetros, sino que se hace una copia de estos.
+
+
+Middlwares
+Son estructuras que se adosan al store al realizar el createStore. Al agregarle el Middlware, este se estaria interponiendo entre cada una de las acciones que vamos generando, y nos brinda de una capacidad extendida a lo que nos brinda por defecto redux.
+Hay Middlwares que favorecen el logeo de la app, otros que atienden a eventos asincronos.
+El Middlware a utlizar va a ser de los que favorecen eventos asincronos, y este va a ser 'redux thunk'.

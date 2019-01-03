@@ -165,3 +165,6 @@ Para redux extension tambien se debera aplicar 'compose'.
 - Para utilizar middlwares se necesita ademas del 'createStore', el 'applyMiddleware'.
 
 El middleware internamente es una funcion que va a ser invocada repetidas veces por el core de redux, en el cual cuando se genera una accion nueva, invoca al middleware para ver si hay que realizar un procesamiento sobre esa acción.
+
+Nota:
+En realidad utilizar redux no cambia la necesidad de realizar dos request sobre el servidor. El hecho de incorporar redux hace que manejemos de una forma más predecible y unificada el estado de la aplicación, pero no modifica otras cosas. Igualmente, redux-thunk nos brinda una forma de manejar acciones asíncronas, tal como son las promises, entre las que podemos contar al "fetch", para ir a buscar los datos al servidor.

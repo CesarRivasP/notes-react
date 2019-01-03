@@ -91,6 +91,14 @@ Es una función que su vez espera dos funciones, la segunda función va a ser un
 La función connect va a retornar otra función, y esa otra función espera que se le pase como parámetro el componente que se esta generando.
 // función que retorna otra función -> connect()(componente)
 
+  connect(1,2)(component)
+
+  1.- mapStateToProps(values 'app state') -> retorna un objeto con las propiedades (values) a utilizar. Esas propiedades van a ser las propiedades que se mapeen a propiedades del component. Connect inyecta dichas propiedades en el componente como props, por lo que se va a poder acceder a las propiedades con 'this.props', y va a estar disponible todo lo que se haya indicado en ese objeto
+  2.- mapDispatchToProps(func) -> retorna un objeto con funciones que llaman al dispatch, el cual viene como parámetro para que se pueda utilizar dentro de esas funciones. Es decir, que se va a retornar un objeto con funciones que luego se van a mapear, puesto que connect las inyecta como propiedades dentro del componente.
+
+   * Nos va a dar aquellas propiedades que van a ejecutar acciones y nos van a permitir alterar el estado de la aplicación. A su vez, cuando se altera el estado de la aplicación, el mapStateToProps va a ser invocado, y al ser invocado va a setear nuevos valores de propiedades. Ante este cambio, se ejecuta una nueva renderizacion.
+   Con estas dos funciones, básicamente se esta gestionando el ciclo de vida de los componentes, y las formas en las que se realizan las renderizaciones. Dentro de connect hay funciones, utilización de cache, que permite hacer lo mas eficientemente posible todo el ciclo como para evitar comparaciones y procesamientos extra. Eso es lo que engloba el connect, tratando de hacer mas eficiente el manejo de las funciones, valores a modificar y demás.
+
 Una vez realizados los pasos anteriores, el componente a exportar ahora no va a ser app.js (por ejemplo), sino va a ser el app.js resultante de la conexión.
 Va a ser el componente con habilidad de conectarse con el store.
 Una realizado el export del 'nuevo' componente ya no se tiene acceso al store de la misma manera, por lo que la función mapDispatchToPropsActions va recibir como parámetro el dispatch, que a su vez va a esperar que le retornemos un objeto que va a tener las funciones que posteriormente se van a invocar para hacer la creación de las acciones.

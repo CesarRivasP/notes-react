@@ -155,20 +155,30 @@ Dicho esto, se logra una de las principales premisas de redux, que es generar es
 
 
 Middlwares
-Son estructuras que se adosan al store al realizar el createStore. Al agregarle el Middlware, este se estaria interponiendo entre cada una de las acciones que vamos generando, y nos brinda de una capacidad extendida a lo que nos brinda por defecto redux.
-Hay Middlwares que favorecen el logeo de la app, otros que atienden a eventos asincronos.
-El Middlware a utlizar va a ser de los que favorecen eventos asincronos, y este va a ser 'redux thunk'.
+Son estructuras que se adosan al store al realizar el createStore. Al agregarle el Middlware, este se estaría interponiendo entre cada una de las acciones que vamos generando, y nos brinda de una capacidad extendida a lo que nos brinda por defecto redux.
+Hay Middlwares que favorecen el login de la app, otros que atienden a eventos asíncronos.
+El Middlware a utilizar va a ser de los que favorecen eventos asíncronos, y este va a ser 'redux thunk'.
 
 Nota:
 - Si se aplica el uso Middlwares, se debe cambiar la forma en la que se invoca la extensión de devtools para redux.
-Para redux extension tambien se debera aplicar 'compose'.
+Para redux extension también se debera aplicar 'compose'.
 - Para utilizar middlwares se necesita ademas del 'createStore', el 'applyMiddleware'.
 
-El middleware internamente es una funcion que va a ser invocada repetidas veces por el core de redux, en el cual cuando se genera una accion nueva, invoca al middleware para ver si hay que realizar un procesamiento sobre esa acción.
+El middleware internamente es una función que va a ser invocada repetidas veces por el core de redux, en el cual cuando se genera una acción nueva, invoca al middleware para ver si hay que realizar un procesamiento sobre esa acción.
 
 Nota:
 En realidad utilizar redux no cambia la necesidad de realizar dos request sobre el servidor. El hecho de incorporar redux hace que manejemos de una forma más predecible y unificada el estado de la aplicación, pero no modifica otras cosas. Igualmente, redux-thunk nos brinda una forma de manejar acciones asíncronas, tal como son las promises, entre las que podemos contar al "fetch", para ir a buscar los datos al servidor.
 
 
 combineReducers
-Es una funcion que espera como parametro un objeto, el cual va a tener los nombres de los reducers a utilizar.
+Es una función que espera como parámetro un objeto, el cual va a tener los nombres de los reducers a utilizar.
+
+Selectors
+Recortan una porción del estado global de la aplicación, de manera que se pueda trabajar solamente sobre la parte del estado que nos interesa.
+Al momento de hacer una refactorizacion de como esta estructurado el estado de la aplicación, allí habría que manipular todos
+los containers que lo utilicen. Siendo así, es mas complicado su mantenimiento. Para proyectos muy extensos, y que potencialmente puedan
+crecer mucho, es recomendado utilizar el patrón selector. Este patrón no solo es beneficioso en el caso de la abstracción del estado,
+sino ademas hay librerías que nos permiten hacer mas eficiente el manejo de las selecciones.
+Uno de los casos prácticos mas utilizados para los selectors son los filtrados de datos. Cuando se tiene un array 'cities', y se quiere
+obtener las ciudades con 'a' o que cumplan con requisito en especifico como una región determinada, cada vez que se tiene un filtro los
+selectors tienen mayor importancia

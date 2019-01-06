@@ -182,3 +182,20 @@ sino ademas hay librerías que nos permiten hacer mas eficiente el manejo de las
 Uno de los casos prácticos mas utilizados para los selectors son los filtrados de datos. Cuando se tiene un array 'cities', y se quiere
 obtener las ciudades con 'a' o que cumplan con requisito en especifico como una región determinada, cada vez que se tiene un filtro los
 selectors tienen mayor importancia
+
+Libreria reselect
+Cuando se tenga un estado con muchos datos, cuando hayan filtros que puedan ser complicados, esta librería nos va a permitir hacer mas eficiente
+ese manejo. Utilizarla no agrega complejidad y nos da el beneficio de tener los selectores estructurados de la misma manera, y con la capacidad de memoizacion incorporada nativamente.
+- Función Principal
+createSelector(...inputSelectors | [inputSelectors], resultFunc)
+Espera como parámetros distintos selectores, los cuales terminan siendo funciones a los cuales se le pasa como parámetro el state y opcionalmente las props. Después de esos selectores obtiene un valor final con resultFunc que es como una recopilación de los valores que van retornando los selectores, y esos valores son pasados como parámetros sobre dicha función. La documentación explica que toma uno o mas selectores, o un array de selectores, calcula sus valores, y les pasa como argumento el resultado a la resultFunc.
+
+Características de los selectores
+* Son eficientes, ya que no se ejecutan si ninguno de sus parámetros se modifica
+* Permiten composición: nuevos selectores pueden tomar como entrada otros selectores.
+* Pueden minimizar el tamaño del store, ya que permiten generar datos procesados, en vez de tener que guardarlos
+
+Memoizacion
+Es una cache muy liviana que nos permite hacer mas eficiente el trabajo con grandes volúmenes de datos.
+Definición
+Técnica de optimización que permite mejorar la velocidad de ejecución guardando valores que son resultado de cálculos (generalmente complejos). Utiliza mas memoria que el calculo normal

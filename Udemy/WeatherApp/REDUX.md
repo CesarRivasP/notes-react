@@ -199,3 +199,13 @@ Memoizacion
 Es una cache muy liviana que nos permite hacer mas eficiente el trabajo con grandes volúmenes de datos.
 Definición
 Técnica de optimización que permite mejorar la velocidad de ejecución guardando valores que son resultado de cálculos (generalmente complejos). Utiliza mas memoria que el calculo normal
+
+Libreria Lodash
+Es una libreria que aumenta el potencial a la hora de la manipulacion de tipos de datos, sean :
+- Array
+- Strings
+- Objetos
+- Composicion de funciones
+- Manipular y testear valores
+- Crear funciones compuestas
+Tambien es de utilidad si se quiere brindar compatibilidad con navegadores antiguos y desactualizados

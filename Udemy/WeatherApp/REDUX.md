@@ -200,12 +200,25 @@ Es una cache muy liviana que nos permite hacer mas eficiente el trabajo con gran
 Definición
 Técnica de optimización que permite mejorar la velocidad de ejecución guardando valores que son resultado de cálculos (generalmente complejos). Utiliza mas memoria que el calculo normal
 
-Libreria Lodash
-Es una libreria que aumenta el potencial a la hora de la manipulacion de tipos de datos, sean :
-- Array
-- Strings
-- Objetos
-- Composicion de funciones
-- Manipular y testear valores
-- Crear funciones compuestas
-Tambien es de utilidad si se quiere brindar compatibilidad con navegadores antiguos y desactualizados
+BindActionCreators
+Es una utilidad opcional que simplifica en algunos casos la estructura del 'bind' de las acciones, es parte del api de redux.
+
+
+Flux
+Redux se base en conceptos de Flux, que es una arquitectura hecha especialmente por facebook que posee distintos elementos, los cuales son:
+* Dispatcher
+* Store
+* Action
+* View
+
+Redux no toma absolutamente todos estos elementos, los modifica para hacerlos mas sencillos y con ese tipo de aproximación es que se estudia en este curso y es con la que habitualmente se desarrolla con esta librería.
+En este curso se utilizo la aproximación mas utilizada ya que la aproximación inicial de flux tenia cierto grado de complejidad que hacia bastante difícil su implementación y requería mas codificación.
+Uno de los conceptos clave que proporciona flux es:
+* Los datos del store solo deben modificarse en respuesta a una action
+* Data Flow : "ofrece un flujo de datos estrictamente unidireccional", Gracias a esto no existe el doble 'bind' que existe en otras tecnologías como angular, en el cual se pueden hacer modificaciones desde el model a la vista como desde las vista al model, es un patrón bidireccional.
+  - Unidirectional Data Flow
+    Hace la lógica de la aplicación mas predecible y mas fácil de entender
+* SSOT: Single Source Of Truth (solo hay una fuente de la verdad)
+- Es una arquitectura
+- Implica que se va a mantener un único store
+- Una de las diferencias mas importantes con flux original, es que flux admitía múltiples stores y en redux encontramos un solo store donde están establecidos todos los datos

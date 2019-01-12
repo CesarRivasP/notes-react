@@ -19,6 +19,10 @@ npm i --save react-router-dom
 El nombre react-router-dom internamente hace referencia a su librería core que es react-router. Es decir que react-router-dom contiene a react-router internamente como dependencia, de manera que al instalar react-router-dom también se esta instalando la primera. Esta división se debe a que las ultimas versiones de la librería están pensadas para poder utilizarse también en dispositivos android o dispositivos que utilicen React Native, por lo que tiene la versión que es especial para paginas web que es la que se esta usando en el este proyecto (customers-app) y otra especial para React Native.
 - Ambas comparten el mismo core que es *react-router*
 
+El component Link se debe usar en conjunto con un Router, como BrowserRouter, el cual nos va a permitir un manejo mas natural de la URL.
+Tambien hay otros tipos de routas que nos permiten utilizar la url con otros simbolos como el de '#' u otros que modifican de forma virtual la url sin modificar lo que dice el navegador.
+* BrowserRouter es el mas utilizado
+
 Redux Form
 Es especialmente para la carga de formularios
 

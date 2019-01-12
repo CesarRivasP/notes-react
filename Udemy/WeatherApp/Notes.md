@@ -379,3 +379,7 @@ Cualquiera de estos tres eventos genera la re-renderizacion del componente y una
 
 High Order Components
 Los high order components son funciones que toman como parámetro un componente, y retornan otro con alguna mejora o modificación. Se suelen utilizar para solucionar aspectos transversales de la aplicación.
+
+
+Nota:
+Utilizar npx create-react-app para crear una aplicacion nos permite la utilizacion de webpack y hotReload

@@ -39,7 +39,7 @@ Para estos casos se tiene el componente 'Switch'. Este componente se emplea envo
   - Por rutas mas especificas se refiere a las que tienen mas concatenaciones y tienen parámetros establecidos, definidos.
 * No es necesario agregar el 'exact' cuando la ruta esta envuelta en un switch
 * Hay varias soluciones para el mismo problema, pueden consistir en la forma en la que se ordenan los casos de ruta, en implementar el componente Switch, o implementar el atributo exact
-
+El componente Link es el componente a utilizar en primera medida para redireccionar desde la pantalla de home, hacia la pantalla del listado de clientes.
 Redux Form
 Es especialmente para la carga de formularios
 

@@ -41,23 +41,37 @@ Para estos casos se tiene el componente 'Switch'. Este componente se emplea envo
 * Hay varias soluciones para el mismo problema, pueden consistir en la forma en la que se ordenan los casos de ruta, en implementar el componente Switch, o implementar el atributo exact
 El componente Link es el componente a utilizar en primera medida para redireccionar desde la pantalla de home, hacia la pantalla del listado de clientes.
 
-- Si se quiere hacer una transicion entre url se puede hacer mediante 'Link', pero si se quiere hacer Mediante
-un evento y a raiz de esa funcion ejecutar la navegacion u alguna otra condicion, se puede hacer mediante el
+- Si se quiere hacer una transición entre url se puede hacer mediante 'Link', pero si se quiere hacer Mediante
+un evento y a raíz de esa función ejecutar la navegación u alguna otra condición, se puede hacer mediante el
 elemento 'History', el cual nos permite acceder siempre y cuando el componente este dentro de el router, y dentro
-history se maneja un stack 'pila de navegacion' en la cual si se quiere navegar hacia otra pantalla, se puede
+history se maneja un stack 'pila de navegación' en la cual si se quiere navegar hacia otra pantalla, se puede
 hacer un push y de esta manera se agrega un elemento al stack y luego cuando el usuario sale de esa ventana
-se saca el elemento del stacl, de manera que se termina navegando a el elemento anterior
+se saca el elemento del stack, de manera que se termina navegando a el elemento anterior
 en el stack.
 La propiedad history existe dentro del contenedor, a pesar de que no este declarada o importada
 El componente Route es el encargado de pasarle las variable de entorno (match, location, history) a los
 componentes indicados.
   * Nota: para que route le pueda pasar las propiedades al componente indicado, debe ser declarado directamente
-  el componente en el atributo component de Route, si esto se hace por medio de una funcion no pasa las
+  el componente en el atributo component de Route, si esto se hace por medio de una función no pasa las
   propiedades.
   Para que esto funcione indistintamente de la forma en la que fue declarado, se puede aplicar withRouter y dentro
   se coloca el componente a exportar. Esto le agrega funcionalidades al componente y le agrega las tres propiedades
-  que antes solo se pasaban dependiendo de como habia sido invocado o declarado el componente
-  
+  que antes solo se pasaban dependiendo de como había sido invocado o declarado el componente
+
+
+React-Router v4
+* La nueva versión sufrió un cambio completo, quebrando la compatibilidad con versiones anteriores
+* En la nueva versión se utiliza un enfoque de ruteo dinámico (Dynamic Routing). Esto, contrariamente al enfoque utilizado anteriormente, significa que hay cambios que pueden llegar a ser sustanciales. El ruteo dinámico establece que se resuelve el ruteo a medida que la app y los componentes se renderizan, mientras que en el ruteo estático se establece la navegación como una configuración que esta por fuera de la ejecución de la aplicación, en este caso, se va resolviendo a medida que se produce la ejecución y por eso se tiene routing dentro de los componentes. De esta manera se permite manejar mejor renderizados diferentes de acuerdo con el tamaño de la pantalla para hacer apps responsive
+
+React-Router es pensado como un core, el cual tiene un componente base que luego es extendido en dos componentes:
+- react-router-dom
+Es especialmente construido para la navegación web
+- react-router-native Es especialmente construido para React-Native al utilizarlo en android
+
+Esto quiere decir que tiene implementaciones diferenciadas de acuerdo a la plataforma, pero tienen un core en común.
+
+Dentro de los componentes que administran el ruteo, se tiene el Router como componente de alto nivel y base de la forma en la que se realiza el ruteo. Despues de este, hay otras tres implementaciones de diferentes de router:
+
 Redux Form
 Es especialmente para la carga de formularios
 

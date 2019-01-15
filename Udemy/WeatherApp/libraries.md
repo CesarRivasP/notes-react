@@ -64,13 +64,33 @@ React-Router v4
 * En la nueva versión se utiliza un enfoque de ruteo dinámico (Dynamic Routing). Esto, contrariamente al enfoque utilizado anteriormente, significa que hay cambios que pueden llegar a ser sustanciales. El ruteo dinámico establece que se resuelve el ruteo a medida que la app y los componentes se renderizan, mientras que en el ruteo estático se establece la navegación como una configuración que esta por fuera de la ejecución de la aplicación, en este caso, se va resolviendo a medida que se produce la ejecución y por eso se tiene routing dentro de los componentes. De esta manera se permite manejar mejor renderizados diferentes de acuerdo con el tamaño de la pantalla para hacer apps responsive
 
 React-Router es pensado como un core, el cual tiene un componente base que luego es extendido en dos componentes:
-- react-router-dom
-Es especialmente construido para la navegación web
-- react-router-native Es especialmente construido para React-Native al utilizarlo en android
+- react-router-dom: Es especialmente construido para la navegación web
+- react-router-native: Es especialmente construido para React-Native al utilizarlo en android
 
 Esto quiere decir que tiene implementaciones diferenciadas de acuerdo a la plataforma, pero tienen un core en común.
 
-Dentro de los componentes que administran el ruteo, se tiene el Router como componente de alto nivel y base de la forma en la que se realiza el ruteo. Despues de este, hay otras tres implementaciones de diferentes de router:
+Dentro de los componentes que administran el ruteo, se tiene el Router como componente de alto nivel y base de la forma en la que se realiza el ruteo. Después de este, hay otras tres implementaciones de diferentes de router:
+  - Route: es el componente mas importante del sistema de navegación. Cuando el location se corresponde con 'path', se encarga de renderizar los componentes visuales que le sean indicados.
+  Ejemplo:
+    <Route path="/customers" ... />
+
+    * Este es el path que se esta buscando, cuando la url concuerde con el path que se le esta indicando va a intentar realizar la renderizacion de un componente asociado.
+    Las formas en las que se asocia un componente son 3 (formas de invocar a Route):
+      + <Route path="/customers" component={Customer} />
+      + <Route path="/customers" render={() => (<Customer />)} />
+      + <Route path="/customers" children=(({ match, ...rest }) => ( match ? <p>No</p> : <p>Si</p> )) />
+        Nota:
+        La forma recomendable para mostrar un componente no es de acuerdo a una función, lo recomendable en practica es utilizar 'render', puesto que si se utiliza component pasandole una función, se va a generar el componente cada vez que ejecutamos un cambio de url. Render se puede utilizar para pasarle una función y muestra de acuerdo a dicha función.
+        El atributo children evaluá y se ejecuta siempre el renderizado independientemente que la evaluacion se true o false, pero sirve especialmente para mostrar cosas de acuerdo a si es match o no ( match ? <p>No</p> : <p>Si</p> ) por ejemplo, sirve para realizar animaciones.
+        
+  - BrowserRouter: se apoya en una funcionalidad de HTML 5 que permite modifica la URL (La api history), por lo que para modificar la url del navegador en forma sincronizada con las solicitudes se utiliza este tipo de router. Es el mas utilizado y el de mas fácil entendimiento.
+    * Parámetros que acepta:
+      + basename: se establece cual es la ruta base sobre la cual después de construye el resto del árbol de rutas
+      + forceRefresh: es especialmente utilizado para navegadores viejos que no soportan en forma completa html5, y al establecerlo en true realiza un redibujado completo de la pagina a medida que se va cambiando la url. Este no es un comportamiento esperado ya que lo se quiere de una single page Application es la forma en la optimizada de re-renderizar la pagina.
+      + getUserConfirmation: recibe como parámetro una función 'opcional' que nos permite mostrarle al usuario alguna validación para confirmar la navegación. Por defecto se encuentra en un estado en el que permite la navegación y va continuar dependiendo de la manera en la que se haya invocado.
+
+  - HashRouter: utiliza el simbolo '#' y utiliza la parte de la url después del símbolo, pero en las versiones mas nuevas se recomienda no utlizarlo, puesto que tiene algunos puntos de incompatibilidad en casos claves.
+  - MemoryRouter: no modifica la url, es especialmente utilizado para testing en react-router-dom o react-native ya que es una plataforma que no soporta el manejo de url, por lo que al no tener url no seria el router adecuado.
 
 Redux Form
 Es especialmente para la carga de formularios

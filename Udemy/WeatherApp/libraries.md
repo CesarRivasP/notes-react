@@ -82,7 +82,11 @@ Dentro de los componentes que administran el ruteo, se tiene el Router como comp
         Nota:
         La forma recomendable para mostrar un componente no es de acuerdo a una función, lo recomendable en practica es utilizar 'render', puesto que si se utiliza component pasandole una función, se va a generar el componente cada vez que ejecutamos un cambio de url. Render se puede utilizar para pasarle una función y muestra de acuerdo a dicha función.
         El atributo children evaluá y se ejecuta siempre el renderizado independientemente que la evaluacion se true o false, pero sirve especialmente para mostrar cosas de acuerdo a si es match o no ( match ? <p>No</p> : <p>Si</p> ) por ejemplo, sirve para realizar animaciones.
-        
+
+      * Parámetros que acepta:
+        + exact: cuando la url no haga el match exactamente con la url que se esta pasando en path no se va a ejecutar el metodo de renderizado del componente asociado.
+        + strict: evaluá si existe una barra final al de la ruta con o no
+
   - BrowserRouter: se apoya en una funcionalidad de HTML 5 que permite modifica la URL (La api history), por lo que para modificar la url del navegador en forma sincronizada con las solicitudes se utiliza este tipo de router. Es el mas utilizado y el de mas fácil entendimiento.
     * Parámetros que acepta:
       + basename: se establece cual es la ruta base sobre la cual después de construye el resto del árbol de rutas
@@ -91,6 +95,41 @@ Dentro de los componentes que administran el ruteo, se tiene el Router como comp
 
   - HashRouter: utiliza el simbolo '#' y utiliza la parte de la url después del símbolo, pero en las versiones mas nuevas se recomienda no utlizarlo, puesto que tiene algunos puntos de incompatibilidad en casos claves.
   - MemoryRouter: no modifica la url, es especialmente utilizado para testing en react-router-dom o react-native ya que es una plataforma que no soporta el manejo de url, por lo que al no tener url no seria el router adecuado.
+
+Elemento 'match'
+Cuando se tiene una url '/customers/:dni', en realidad esto es la utilización de un *wildcards* o también llamado *url params*. Esto puede ser utilizado como parámetros que le llegan al componente mediante 'match.params'. También nos permite saber si la url es "exact", cual fue el 'path' utilizado para evaluar una ruta, y la porción de la ruta que coincidió con la evaluación. Todas estas informaciones son proporcionadas por el objeto *match*, el cual se encuentra disponible utlizando el route.
+De acuerdo al ejemplo utilizado al inicio :
+  '/customers/:dni'
+    * El 'url params' es el dni
+      - Se puede acceder al dato con 'match.params.dni' y asi se puede hacer uso del valor que haya sido introducido en relacion con ese wildcard definido.
+
+Switch (Component)
+Es utilizado con rutas que pueden generar evaluaciones ambiguas 'ambiguous matches'.
+Genera una estructura de decisión en la cual el primer 'path' es evaluado contra la ruta que genere un resultado positivo sera el que ejecute el renderizado de su componente, terminando el proceso de evaluación sin buscar mas coincidencias en otras rutas que hayan sido definidas debajo. Es decir, se ejecuta como una cascada en la cual las primeras rutas tienen preponderancia sobre las ultimas.
+
+Componentes de Navegación
+Ambos son muy similares y representan un elemento que se renderiza como un componente que permite navegación, las diferencia es que:
+- Link
+- NavLink: permite modificar (customizacion) y puede ser visualizado de otra manera
+
+Redirect (Component)
+Es utilizado principalmente para realizar redirecciones, por ejemplo, cuando se necesita evaluar un flujo en el cual el usuario no tiene permitido acceder, por lo que ante un usuario no valido, se puede redireccionarlo a una zona segura.
+
+Funcion withRouter
+Es un High Orden Component, y agrega las propiedades match, location, historym y re-renderiza el componente cuando estas propiedades se modifican. Cuando alguna de estas propiedades recibe un nuevo valor, el componente asociado va a re-renderizarse de acuerdo al nuevo valor otorgado.
+
+Elemento History
+- Es mutable. Esto hace referencia a que no va a tener valor estático, sino que va a ser alterado mediante distintas funciones, como lo pueden ser:
+  * push: permite agregar una nueva entrada. Dentro de history nos permite agregar un elemento a la pila (que es history)
+  * replace: permite modificar el ultimo elemento ingresado en history por otro nuevo. Es decir, si se navega a customers y luego se navega a customerNew, customers va a desaparecer del top del stack y va a ser reemplazado por customersNew.
+
+  Las sentencias con 'go' son tres sentencias que nos permiten manejos de navegacion tanto con:
+  * go(n): es el generico, se pueden hacer saltos de mas de una unidad.
+  * goBack(): para atrás, hacia la ultima navegación conocida. (go - 1)
+  * goForward(): una vez que se ejecuta un goBack, se puede volver con goForward nuevamente para adelante (go + 1)
+
+  * block(): cancela o evita la navegacion de manera que no se pueda desplazar el usuario libremente en las distintas urls
+
 
 Redux Form
 Es especialmente para la carga de formularios

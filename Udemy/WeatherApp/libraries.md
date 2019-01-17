@@ -123,13 +123,12 @@ Elemento History
   * push: permite agregar una nueva entrada. Dentro de history nos permite agregar un elemento a la pila (que es history)
   * replace: permite modificar el ultimo elemento ingresado en history por otro nuevo. Es decir, si se navega a customers y luego se navega a customerNew, customers va a desaparecer del top del stack y va a ser reemplazado por customersNew.
 
-  Las sentencias con 'go' son tres sentencias que nos permiten manejos de navegacion tanto con:
-  * go(n): es el generico, se pueden hacer saltos de mas de una unidad.
+  Las sentencias con 'go' son tres sentencias que nos permiten manejos de navegación tanto con:
+  * go(n): es el genérico, se pueden hacer saltos de mas de una unidad.
   * goBack(): para atrás, hacia la ultima navegación conocida. (go - 1)
   * goForward(): una vez que se ejecuta un goBack, se puede volver con goForward nuevamente para adelante (go + 1)
 
-  * block(): cancela o evita la navegacion de manera que no se pueda desplazar el usuario libremente en las distintas urls
-
+  * block(): cancela o evita la navegación de manera que no se pueda desplazar el usuario libremente en las distintas urls
 
 Redux Form
 Es especialmente para la carga de formularios
@@ -137,3 +136,6 @@ Es especialmente para la carga de formularios
 Redux Actions
 - Esta librería tiene como objetivo generar un código mas compacto y mas claro a la lectura.
 - Nos proporciona otra forma de manipular las acciones y manipular los reducers
+
+* handleAction es una utilidad que permite manejar los reducers
+* handleActions en vez de esperar solo una clave de constante, espera un objeto que va estar compuesto por las distintas constantes como claves de este objeto (como un diccionario), y luego dicha clave va a estar asociada a una función. Es decir, que en vez de tener una sola action a trabajar, se puede tener un listado de acciones y siempre se asocia a una funcion donde el primer parametro es el state y el segundo es el valor de la accion

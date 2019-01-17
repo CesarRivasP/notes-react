@@ -135,4 +135,5 @@ Redux Form
 Es especialmente para la carga de formularios
 
 Redux Actions
-Nos proporciona otra forma de manipular las acciones y manipular los reducers
+- Esta librería tiene como objetivo generar un código mas compacto y mas claro a la lectura.
+- Nos proporciona otra forma de manipular las acciones y manipular los reducers

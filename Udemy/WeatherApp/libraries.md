@@ -139,3 +139,14 @@ Redux Actions
 
 * handleAction es una utilidad que permite manejar los reducers
 * handleActions en vez de esperar solo una clave de constante, espera un objeto que va estar compuesto por las distintas constantes como claves de este objeto (como un diccionario), y luego dicha clave va a estar asociada a una función. Es decir, que en vez de tener una sola action a trabajar, se puede tener un listado de acciones y siempre se asocia a una funcion donde el primer parametro es el state y el segundo es el valor de la accion
+
+
+json-server
+Siempre que si quiera trabajar con datos y no tengamos en nuestra disposición una base de datos o un servidor se puede simular este contacto con el servidor con esta librería.
+Es un paquete que genera un server en base a un archivo json y luego lo podemos consumir realizando tanto get, puts, post y todo tipo de acción http-rest que se quiera hacer ante este pseudo server
+
+- Se invoca de la siguiente manera:
+  json-server --watch nombreArchivo.json --port 3001
+
+Nota:
+La bandera watch indica que cada vez que se modifique el archivo va a estar siendo supervisado por json-server y va levantar de nuevo la nueva estructura de datos que haya sido implementada

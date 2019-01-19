@@ -150,3 +150,9 @@ Es un paquete que genera un server en base a un archivo json y luego lo podemos 
 
 Nota:
 La bandera watch indica que cada vez que se modifique el archivo va a estar siendo supervisado por json-server y va levantar de nuevo la nueva estructura de datos que haya sido implementada
+
+redux-promise
+- Cuando se esta utilizando redux-actions, el middleware que mas se ajusta al contexto es redux-promise
+- Con este middleware se puede utiliza la acción de redux actions
+- Aplicando este middleware, la acción no va a llegar de forma directa al reducer una vez se dispara, como sucede normalmente, sino que la acción va a ser retrasada hasta que se ejecute y se resuelva la promise enviada por el fecth, una vez se obtiene el valor resultante se va a generar una nueva acción FETCH_CUSTOMERS copia de la original que recién en ese momento va a ser tomada por el reducer y va a tener como resultado del server en el payload. En ese momento, en el payload va a venir el dato que nos retorna el server.
+- promiseMiddleware se encarga de trabajar en paralelo con las promises, retrasa la resolución, y una vez tiene la resolución de la promise recién allí concluye la acción.

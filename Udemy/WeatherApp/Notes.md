@@ -382,5 +382,8 @@ Los high order components son funciones que toman como parámetro un componente,
 
 
 Nota:
-Utilizar npx create-react-app para crear una aplicacion nos permite la utilizacion de webpack y hotReload.
+Utilizar npx create-react-app para crear una aplicación nos permite la utilización de webpack y hotReload.
 Yarn es un manejador de paquetes similar a npm, pero es mucho mas ágil ya que permite descargas en paralelo, cosa que npm no permite
+
+- Middlewares
+Los middlewares escuchan a cada una de las acciones y detecta las acciones que le interesan.

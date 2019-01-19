@@ -156,3 +156,20 @@ redux-promise
 - Con este middleware se puede utiliza la acción de redux actions
 - Aplicando este middleware, la acción no va a llegar de forma directa al reducer una vez se dispara, como sucede normalmente, sino que la acción va a ser retrasada hasta que se ejecute y se resuelva la promise enviada por el fecth, una vez se obtiene el valor resultante se va a generar una nueva acción FETCH_CUSTOMERS copia de la original que recién en ese momento va a ser tomada por el reducer y va a tener como resultado del server en el payload. En ese momento, en el payload va a venir el dato que nos retorna el server.
 - promiseMiddleware se encarga de trabajar en paralelo con las promises, retrasa la resolución, y una vez tiene la resolución de la promise recién allí concluye la acción.
+
+Funcionamiento Interno
+- Cuando encuentra actions que en su payload tienen una promise, entonces ejecuta la promise, y
+retiene la acción (no invoca a next(action)).
+  * En este caso lo que va a detectar es que exista el 'then' típico de una promise, y que este sea una
+  función. De esta manera en forma dinámica detecta que la estructura que se le esta pasando es una
+  promise.
+- Por todo lo explicado anteriormente, la acción no llega directamente al reducer, sino que es consumida
+por el mismo middleware.
+- Una vez se resuelve la promise, genera una acción que es copia de la original, pero con el resultado de
+la promise en el payload. Es decir, desde un lado se genera la acción y luego viene en el reducer esta accion
+con un payload establecido por el resultado de la promise
+- Si la promise finaliza en error, genera una acción con el error en el payload, y con la propiedad error
+como un boolean establecido en true
+  * En caso de que en la evaluación del middleware, resulte que el payload no es una promise, no hace nada, solo sigue el flujo normal
+  * En caso de que resulte que la evaluación sea verdadera, ejecuta la promise y copia la acción original
+  y le hace dispatch

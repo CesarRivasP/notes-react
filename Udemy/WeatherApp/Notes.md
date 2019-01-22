@@ -387,3 +387,7 @@ Yarn es un manejador de paquetes similar a npm, pero es mucho mas ágil ya que p
 
 - Middlewares
 Los middlewares escuchan a cada una de las acciones y detecta las acciones que le interesan.
+
+- Forms (Formularios)
+React provee una forma de trabajar con formularios 'forms'
+- Permite trabajar con componentes controlados, estos en base a lo que se va a modificando en ellos, como por ejemplo, el value de un input, cuando este tiene asociado un evento onChange, y en base a este va estableciendo el estado en el componente que se haya generado para manejar el formulario.

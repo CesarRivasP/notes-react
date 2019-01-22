@@ -143,6 +143,12 @@ Es especialmente para la carga de formularios
 - Los nombres de los formularios deben ser únicos en la aplicación, sino podrían generarse conflictos
 - En el reducer es donde se aloja el estado, pero ese estado debe ser generado por un compoente que reduxform reconoce e interpreta. Ese componente es 'Field'
   * Field: cada uno de los componentes field genera distintas acciones y por medio del action creator que tiene internamente reduxform, permite el funcionamiento del formulario
+    + Cada vez que se ejecuta una accion 'change', indica que se esta modificando el estado de la app
+    + El accion 'BLUR' hace referencia a cuando sale del control (cuando dejas un field)
+    + El accion 'FOCUS' hace referencia a cuando ingresas al control de un field
+- A los componentes se les puede indicar cuales son sus initialValues, es una propiedad que los componentes reconocen para identificar cuales son los valores iniciales en los field
+- initialValues es una propiedad que esta establecida en redux-form, y por ello es la forma que reconoce para establecer valores iniciales.
+Para que funcione, las llaves de los valores que se están pasando como iniciales deben coincidir con el valor que se le asigno al Field del componente, de no coincidir no tomara los valores iniciales
 
 Redux Actions
 - Esta librería tiene como objetivo generar un código mas compacto y mas claro a la lectura.

@@ -374,12 +374,15 @@ Al hacer:
 Cualquiera de estos tres eventos genera la re-renderizacion del componente y una actualización en pantalla.
 ¿Que elementos se pueden renderizar?
 1.- Los react elements que son componentes nativos y componentes de usuarios extendidos de Component JSX.
-2.- Se pueden renderizar como nodos de texto tanto strings como numeros.
+2.- Se pueden renderizar como nodos de texto tanto strings como números.
 3.- Si se necesita algún componente que no renderice en ningún tipo de HTML element, podemos renderizar con Null o false.
 
-High Order Components - helpers
+Higher Order Components - HOC (helpers)
 Los high order components son funciones que toman como parámetro un componente, y retornan otro con alguna mejora o modificación. Se suelen utilizar para solucionar aspectos transversales de la aplicación.
-
+- A pesar de su nombre, cumplen con la función de un patrón 'Decorator' (Patrón de diseño).
+    * Patrón Decorator: responde a la necesidad de añadir dinamicamente funcionalidad a un componente u objeto, obteniendo un nuevo objeto con esa funcionalidad agregada. Todo eso sin modificar el objeto original. Esto nos permite evitar tener que crear sucesivas clases que hereden incorporando la nueva funcionalidad
+    * Composición de funciones: es un patrón muy utilizado en la programación funcional, donde por ejemplo, se tienen dos funciones que combinadas tienen una tercera.
+  Nota: lo denominado como high order component no es mas que ciertos patrones de diseño (algunos muy utilizados, otros, patrones estándar) como el decorator. La combinación de todas estas herramientas contribuyen a la hora de poder desarrollar este tipo de aplicaciones. En general, este tipo de herramientas están diseñadas para cubrir aspectos 'Cross' de la aplicación, esto quiere decir que no solo son aspectos que están focalizados solamente en un componente, sino en varios. Por lo que, los high order components son especialmente útiles para la implementación de niveles de acceso y accesibilidad a distintas partes de nuestra aplicación.
 
 Nota:
 Utilizar npx create-react-app para crear una aplicación nos permite la utilización de webpack y hotReload.

@@ -63,6 +63,10 @@ React-Router v4
 * La nueva versión sufrió un cambio completo, quebrando la compatibilidad con versiones anteriores
 * En la nueva versión se utiliza un enfoque de ruteo dinámico (Dynamic Routing). Esto, contrariamente al enfoque utilizado anteriormente, significa que hay cambios que pueden llegar a ser sustanciales. El ruteo dinámico establece que se resuelve el ruteo a medida que la app y los componentes se renderizan, mientras que en el ruteo estático se establece la navegación como una configuración que esta por fuera de la ejecución de la aplicación, en este caso, se va resolviendo a medida que se produce la ejecución y por eso se tiene routing dentro de los componentes. De esta manera se permite manejar mejor renderizados diferentes de acuerdo con el tamaño de la pantalla para hacer apps responsive
 
+En las anteriores versiones de react-router siempre se hacia la definición del ruteo a nivel de aplicación, en el nivel mas externo. Ahora hay parte del ruteo definida en app.js, en donde nos encontramos con el componente Router (BrowserRouter) y dentro de este las diferentes rutas que acepta.
+Todo eso nos permite navegar entre las diferentes paginas.
+En la versión anterior de react-router solo había una manera de establecer el ruteo, y era establecer el ruteo a nivel de app.js. A pesar de que en primera instancia se empezó a desarrollar la aplicacion (customer-app) de acuerdo a las posibilidades de la versión anterior, la nueva version nos permite hacer un ruteo anidado, es decir, al estar dentro de un componente se puede definir otro tipo de ruteo.
+
 React-Router es pensado como un core, el cual tiene un componente base que luego es extendido en dos componentes:
 - react-router-dom: Es especialmente construido para la navegación web
 - react-router-native: Es especialmente construido para React-Native al utilizarlo en android
@@ -132,13 +136,20 @@ Elemento History
 
 Redux Form
 Es especialmente para la carga de formularios
+- Nos facilita el trabajo integrado con redux
+- Es necesario que este instalado redux para su funcionamiento
+- Para utilizar reduxform hay que generar un reducer, el cual se va a colocar en el index de los reducers, y este reducer lo va a proveer directamente la librería reduxform
+- ES importante que la key se llame 'form' en el combineReducer
+- Los nombres de los formularios deben ser únicos en la aplicación, sino podrían generarse conflictos
+- En el reducer es donde se aloja el estado, pero ese estado debe ser generado por un compoente que reduxform reconoce e interpreta. Ese componente es 'Field'
+  * Field: cada uno de los componentes field genera distintas acciones y por medio del action creator que tiene internamente reduxform, permite el funcionamiento del formulario
 
 Redux Actions
 - Esta librería tiene como objetivo generar un código mas compacto y mas claro a la lectura.
 - Nos proporciona otra forma de manipular las acciones y manipular los reducers
 
 * handleAction es una utilidad que permite manejar los reducers
-* handleActions en vez de esperar solo una clave de constante, espera un objeto que va estar compuesto por las distintas constantes como claves de este objeto (como un diccionario), y luego dicha clave va a estar asociada a una función. Es decir, que en vez de tener una sola action a trabajar, se puede tener un listado de acciones y siempre se asocia a una funcion donde el primer parametro es el state y el segundo es el valor de la accion
+* handleActions en vez de esperar solo una clave de constante, espera un objeto que va estar compuesto por las distintas constantes como claves de este objeto (como un diccionario), y luego dicha clave va a estar asociada a una función. Es decir, que en vez de tener una sola action a trabajar, se puede tener un listado de acciones y siempre se asocia a una función donde el primer parámetro es el state y el segundo es el valor de la acción
 
 
 json-server

@@ -93,6 +93,10 @@ La función connect va a retornar otra función, y esa otra función espera que 
 
   connect(1,2)(component)
 
+
+  - Connect es un high order function que obtiene un high order component, por eso el patron utilizado para connect tiene algunas diferencias con respecto al utilizado para crear el high order component, que simplemente espera como parámetro un componente.
+  El connect tiene cierta complejidad añadida, que en realidad es una 'composicion de funciones'.
+
   1.- mapStateToProps(values 'app state') -> retorna un objeto con las propiedades (values) a utilizar. Esas propiedades van a ser las propiedades que se mapeen a propiedades del component. Connect inyecta dichas propiedades en el componente como props, por lo que se va a poder acceder a las propiedades con 'this.props', y va a estar disponible todo lo que se haya indicado en ese objeto
   2.- mapDispatchToProps(func) -> retorna un objeto con funciones que llaman al dispatch, el cual viene como parámetro para que se pueda utilizar dentro de esas funciones. Es decir, que se va a retornar un objeto con funciones que luego se van a mapear, puesto que connect las inyecta como propiedades dentro del componente.
 

@@ -394,3 +394,7 @@ Los middlewares escuchan a cada una de las acciones y detecta las acciones que l
 - Forms (Formularios)
 React provee una forma de trabajar con formularios 'forms'
 - Permite trabajar con componentes controlados, estos en base a lo que se va a modificando en ellos, como por ejemplo, el value de un input, cuando este tiene asociado un evento onChange, y en base a este va estableciendo el estado en el componente que se haya generado para manejar el formulario.
+- Las validaciones de formularios tienen dos formas:
+  * Validaciones Globales
+  * Validaciones por field
+    - La propiedad touch va a estar establecida en true solamente cuando el usuario haya entrado y salido alguna vez de ese campo, si no que da en false.

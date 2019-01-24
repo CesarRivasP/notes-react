@@ -144,7 +144,7 @@ Es especialmente para la carga de formularios
 - En el reducer es donde se aloja el estado, pero ese estado debe ser generado por un compoente que reduxform reconoce e interpreta. Ese componente es 'Field'
   * Field: cada uno de los componentes field genera distintas acciones y por medio del action creator que tiene internamente reduxform, permite el funcionamiento del formulario
     + Cada vez que se ejecuta una accion 'change', indica que se esta modificando el estado de la app
-    + El accion 'BLUR' hace referencia a cuando sale del control (cuando dejas un field)
+    + El accion 'BLUR' hace referencia a cuando sale del control (cuando dejas un field). Este evento se genera al salir de un campo
     + El accion 'FOCUS' hace referencia a cuando ingresas al control de un field
 - A los componentes se les puede indicar cuales son sus initialValues, es una propiedad que los componentes reconocen para identificar cuales son los valores iniciales en los field
 - initialValues es una propiedad que esta establecida en redux-form, y por ello es la forma que reconoce para establecer valores iniciales.
@@ -188,5 +188,4 @@ con un payload establecido por el resultado de la promise
 - Si la promise finaliza en error, genera una acción con el error en el payload, y con la propiedad error
 como un boolean establecido en true
   * En caso de que en la evaluación del middleware, resulte que el payload no es una promise, no hace nada, solo sigue el flujo normal
-  * En caso de que resulte que la evaluación sea verdadera, ejecuta la promise y copia la acción original
-  y le hace dispatch
+  * En caso de que resulte que la evaluación sea verdadera, ejecuta la promise y copia la acción original y le hace dispatch

@@ -156,6 +156,18 @@ Para que funcione, las llaves de los valores que se están pasando como iniciale
 
 - onSubmitSuccess es una propiedad que permite devolvernos automáticamente a una ruta determinada al ejecutarse un submit.
 
+- Hay que indicarle exactamente a redux-form, que tipo de dato tiene que guardar, sino lo va a guardar como tipo string.
+
+Ciclo de vida y de generación de cada uno de los campos que tiene redux form
+1.- Render (se visualiza el field)
+2.- El usuario cambia algún valor
+3.- Se parsea con parse()
+4.- Se normaliza con normalize()
+5.- Se ejecuta la acción que actualiza el store
+6.- Se toma el valor actualizado desde el store
+7.- Se formatea con format()
+- Se vuelve a renderizar
+
 Redux Actions
 - Esta librería tiene como objetivo generar un código mas compacto y mas claro a la lectura.
 - Nos proporciona otra forma de manipular las acciones y manipular los reducers

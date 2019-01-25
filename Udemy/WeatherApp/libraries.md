@@ -165,6 +165,9 @@ Es un paquete que genera un server en base a un archivo json y luego lo podemos 
 - Se invoca de la siguiente manera:
   json-server --watch nombreArchivo.json --port 3001
 
+- json-server exige que en cada uno de los registros a consultar, deben poseer una propiedad id (tiene que ser único) para poder generar los métodos get, put, post correctamente
+  * El método put es el método http correcto para hacer modificación de datos
+
 Nota:
 La bandera watch indica que cada vez que se modifique el archivo va a estar siendo supervisado por json-server y va levantar de nuevo la nueva estructura de datos que haya sido implementada
 

@@ -154,6 +154,8 @@ Para que funcione, las llaves de los valores que se están pasando como iniciale
 - Para que se deshabilite el botón de submit, la clave proviene de la propiedad submitting, este debe establecerse en true o false para generar un determinado comportamiento. Su correcto funcionamiento depende de que para que por ejemplo, se deshabilite el botón de submit, en el handle submit hay que retornar una promise la cual va indicar al submiting si debe estar habilitado o no. Mientras la promise se este ejecutando, el submitting va a estar establecido en true y el disabled va a estar funcionando desactivando el boton.
   * Hay que hacer un return de la promise, si no se hace, disabled no funcionara correctamente
 
+- onSubmitSuccess es una propiedad que permite devolvernos automáticamente a una ruta determinada al ejecutarse un submit.
+
 Redux Actions
 - Esta librería tiene como objetivo generar un código mas compacto y mas claro a la lectura.
 - Nos proporciona otra forma de manipular las acciones y manipular los reducers

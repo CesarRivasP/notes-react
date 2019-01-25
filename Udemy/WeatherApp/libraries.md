@@ -151,6 +151,9 @@ Es especialmente para la carga de formularios
 Para que funcione, las llaves de los valores que se están pasando como iniciales deben coincidir con el valor que se le asigno al Field del componente, de no coincidir no tomara los valores iniciales
 - En la funcion handleSubmit, usa cada uno de los valores de los fields, en donde el name del field va a generar la clave de un objeto con su correspondiente valor asociado
 
+- Para que se deshabilite el botón de submit, la clave proviene de la propiedad submitting, este debe establecerse en true o false para generar un determinado comportamiento. Su correcto funcionamiento depende de que para que por ejemplo, se deshabilite el botón de submit, en el handle submit hay que retornar una promise la cual va indicar al submiting si debe estar habilitado o no. Mientras la promise se este ejecutando, el submitting va a estar establecido en true y el disabled va a estar funcionando desactivando el boton.
+  * Hay que hacer un return de la promise, si no se hace, disabled no funcionara correctamente
+
 Redux Actions
 - Esta librería tiene como objetivo generar un código mas compacto y mas claro a la lectura.
 - Nos proporciona otra forma de manipular las acciones y manipular los reducers

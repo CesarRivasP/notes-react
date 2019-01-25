@@ -149,6 +149,7 @@ Es especialmente para la carga de formularios
 - A los componentes se les puede indicar cuales son sus initialValues, es una propiedad que los componentes reconocen para identificar cuales son los valores iniciales en los field
 - initialValues es una propiedad que esta establecida en redux-form, y por ello es la forma que reconoce para establecer valores iniciales.
 Para que funcione, las llaves de los valores que se están pasando como iniciales deben coincidir con el valor que se le asigno al Field del componente, de no coincidir no tomara los valores iniciales
+- En la funcion handleSubmit, usa cada uno de los valores de los fields, en donde el name del field va a generar la clave de un objeto con su correspondiente valor asociado
 
 Redux Actions
 - Esta librería tiene como objetivo generar un código mas compacto y mas claro a la lectura.

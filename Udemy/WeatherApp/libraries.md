@@ -168,6 +168,12 @@ Ciclo de vida y de generación de cada uno de los campos que tiene redux form
 7.- Se formatea con format()
 - Se vuelve a renderizar
 
+- Funcion normalize
+  * Se ejecuta luego que parse, es decir, que el dato que llega para normalize ya fue parseado
+  * Permite realizar validaciones que nos ayudan a asegurarnos, fijar valores independientemente de que el
+  usuario pueda ingresarlos, e informar un error sobre ellos.
+  Uno de los casos de uso es cuando se tiene un campo en el que su valores van desde un punto hasta otro, y se quiere forzar que el campo máximo sea siempre mayor al que se tenia previamente
+
 Redux Actions
 - Esta librería tiene como objetivo generar un código mas compacto y mas claro a la lectura.
 - Nos proporciona otra forma de manipular las acciones y manipular los reducers

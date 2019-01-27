@@ -406,3 +406,20 @@ Validaciones del lado del cliente
 - También llamadas validaciones asincronicas porque se van ejecutando en el mismo momento que el cliente (usuario) va haciendo la modificación de los datos, por lo que el resultado es inmediato
 Validaciones del lado del servidor
 - Estas validaciones también son asincronicas y primero tiene que viajar el dato hacia el server para después obtener una respuesta.
+- Su importancia se debe a que tienden a reforzar las validaciones del lado del cliente, puesto que estas son facilmente hackeables y por otro lado, pueden responder a logicas mas complejas que solo podemos manejar del lado del servidor.
+
+Otras Notas:
+- El error que no permitio utilizar el codigo propuesto en la clase 206 se debe a que hubo una actualizacion en la libreria redux-promise en esta parte:
+  return isPromise(action.payload)
+   ? action.payload.then(
+       result => dispatch({ ...action, payload: result }),
+  -          error => dispatch({ ...action, payload: error, error: true })
+  +          error => {
+  +            dispatch({ ...action, payload: error, error: true });
+  +            return Promise.reject(error);
+  +          }
+     )
+   : next(action);
+  };
+
+- Los errores http que comienzan en el 400, son errores que están reservados para indicar errores en capa de transporte, como podrían ser equivocaciones en la invocación, errores de servicio caído, etc. Este tipo de validaciones no constituye un error de servidor, sino una respuesta correcta que indica una regla de negocio. Por ese motivo es correcto utilizar el status 200.

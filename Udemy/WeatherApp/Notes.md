@@ -399,4 +399,10 @@ React provee una forma de trabajar con formularios 'forms'
   * Validaciones por field
     - La propiedad touch va a estar establecida en true solamente cuando el usuario haya entrado y salido alguna vez de ese campo, si no que da en false.
 - En los botones, cuando se establece que su type es submit, eso le indica al formulario que al presionar el boton debe ejecutar el onSubmit.
-  * Si estas utilizando redux-form, en el onSubmit se le vincula la funcion handleSubmit. 
+  * Si estas utilizando redux-form, en el onSubmit se le vincula la funcion handleSubmit.
+
+Validaciones
+Validaciones del lado del cliente
+- También llamadas validaciones asincronicas porque se van ejecutando en el mismo momento que el cliente (usuario) va haciendo la modificación de los datos, por lo que el resultado es inmediato
+Validaciones del lado del servidor
+- Estas validaciones también son asincronicas y primero tiene que viajar el dato hacia el server para después obtener una respuesta.

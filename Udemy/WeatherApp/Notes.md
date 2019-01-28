@@ -423,3 +423,5 @@ Otras Notas:
   };
 
 - Los errores http que comienzan en el 400, son errores que están reservados para indicar errores en capa de transporte, como podrían ser equivocaciones en la invocación, errores de servicio caído, etc. Este tipo de validaciones no constituye un error de servidor, sino una respuesta correcta que indica una regla de negocio. Por ese motivo es correcto utilizar el status 200.
+
+- React permite el Time Traveling, esto nos permite viajar en el tiempo al poder realizar tanto undo, como redo, y poder revisar, establecer todos los pasos que fueron realizados por el usuario al grabar los estados, y esto facilita el debugging

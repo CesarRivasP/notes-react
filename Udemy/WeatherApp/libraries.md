@@ -134,6 +134,11 @@ Elemento History
 
   * block(): cancela o evita la navegación de manera que no se pueda desplazar el usuario libremente en las distintas urls
 
+Component Prompt de React Router
+- Nos permite agregar una validacion para situaciones en las que se puedan perder datos al ir a otra ruta.
+- Se le pasa por parámetro es que momento se va a mostrar el cartel de que va a navegar a otra ruta, y el mensaje que se quiere mostrar
+
+
 Redux Form
 Es especialmente para la carga de formularios
 - Nos facilita el trabajo integrado con redux
@@ -173,6 +178,8 @@ Ciclo de vida y de generación de cada uno de los campos que tiene redux form
   * Permite realizar validaciones que nos ayudan a asegurarnos, fijar valores independientemente de que el
   usuario pueda ingresarlos, e informar un error sobre ellos.
   Uno de los casos de uso es cuando se tiene un campo en el que su valores van desde un punto hasta otro, y se quiere forzar que el campo máximo sea siempre mayor al que se tenia previamente
+
+- La realizacion de una modificacion sobre un formulario se logra ver mediante pristine, el cual es un boleano que nos indica si hubo algun tipo de modificacion sobre el formulario
 
 Redux Actions
 - Esta librería tiene como objetivo generar un código mas compacto y mas claro a la lectura.

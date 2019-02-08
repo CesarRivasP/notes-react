@@ -448,3 +448,10 @@ Hay otra forma de modificar los componentes, pero esta ataca directamente al DOM
 * Para usar otros componentes que no son de react, como mapas a la hora de controlar el zoom, por ejemplo.
 
 - No se debe utilizar esta técnica en uso general
+
+
+Doble Negación
+Permite transformar un valor truthy en un valor true, y un valor falsy en uno false
+Ejemplo:
+!!isDelete  =  !isDelete -> !!isDelete
+falsy value -> true real -> falso real

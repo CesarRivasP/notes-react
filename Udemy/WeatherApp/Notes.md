@@ -441,3 +441,10 @@ Hay otra forma de modificar los componentes, pero esta ataca directamente al DOM
   ejemplo:
   ref={(txt) => this.cuadroTexto = txt}
   Con esta función se establece en ese parametro la propiedad que indica el componente en el que estamos ubicados, y eso le aplicamos el focus()
+* EL ref proporciona una referencia a nuestro componente no controlada
+
+- Otros Usos
+* Para aplicar animaciones
+* Para usar otros componentes que no son de react, como mapas a la hora de controlar el zoom, por ejemplo.
+
+- No se debe utilizar esta tecnica en uso general

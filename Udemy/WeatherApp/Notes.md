@@ -440,11 +440,11 @@ Hay otra forma de modificar los componentes, pero esta ataca directamente al DOM
   - Para poder manejar Componentes No Controlados hay que modificar el componente de manera que si es un componente funcional, hay que pasarlo a tipo clase. Si no, no se tiene el 'this' para hacer la referencia
   ejemplo:
   ref={(txt) => this.cuadroTexto = txt}
-  Con esta función se establece en ese parametro la propiedad que indica el componente en el que estamos ubicados, y eso le aplicamos el focus()
+  Con esta función se establece en ese parámetro la propiedad que indica el componente en el que estamos ubicados, y eso le aplicamos el focus()
 * EL ref proporciona una referencia a nuestro componente no controlada
 
 - Otros Usos
 * Para aplicar animaciones
 * Para usar otros componentes que no son de react, como mapas a la hora de controlar el zoom, por ejemplo.
 
-- No se debe utilizar esta tecnica en uso general
+- No se debe utilizar esta técnica en uso general

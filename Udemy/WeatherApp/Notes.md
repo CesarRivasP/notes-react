@@ -425,3 +425,19 @@ Otras Notas:
 - Los errores http que comienzan en el 400, son errores que están reservados para indicar errores en capa de transporte, como podrían ser equivocaciones en la invocación, errores de servicio caído, etc. Este tipo de validaciones no constituye un error de servidor, sino una respuesta correcta que indica una regla de negocio. Por ese motivo es correcto utilizar el status 200.
 
 - React permite el Time Traveling, esto nos permite viajar en el tiempo al poder realizar tanto undo, como redo, y poder revisar, establecer todos los pasos que fueron realizados por el usuario al grabar los estados, y esto facilita el debugging
+
+Componentes Controlados
+Componentes como los Fields de redux-form, en los cuales asociamos el valor que tiene que tomar ese componente con un campo que puede venir del estado local del componente, o del global mediante redux, o este hardcoreado, estos son llamados componentes conectados, puesto que estamos trabajando a la manera establecida por React, se trabaja como componente cada cosa.
+
+Componentes No Controlados
+Hay otra forma de modificar los componentes, pero esta ataca directamente al DOM, a la representación del componente una vez esta renderizado.
+- Normalmente esto se hace con JQUERY o JS plano
+- Se debe intentar minimizar estos casos, puesto que en cuanto se empiezan a realizar este tipo de interacciones, se hace menos mantenible el código.
+ Uno de los casos de uso de este tipo de Componente No Controlado es establecer el foco, puesto que esto es algo que naturalmente react no lo maneja de forma nativa.
+
+ - Para tener una referencia de el componente una vez se renderiza -> ref
+  * ref espera una función que tiene un parámetro, en el cual va a llegar el componente al cual se le esta haciendo referencia
+  - Para poder manejar Componentes No Controlados hay que modificar el componente de manera que si es un componente funcional, hay que pasarlo a tipo clase. Si no, no se tiene el 'this' para hacer la referencia
+  ejemplo:
+  ref={(txt) => this.cuadroTexto = txt}
+  Con esta función se establece en ese parametro la propiedad que indica el componente en el que estamos ubicados, y eso le aplicamos el focus()

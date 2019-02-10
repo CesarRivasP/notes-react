@@ -455,3 +455,9 @@ Permite transformar un valor truthy en un valor true, y un valor falsy en uno fa
 Ejemplo:
 !!isDelete  =  !isDelete -> !!isDelete
 falsy value -> true real -> falso real
+
+CSS
+nth-child(even)
+ Permite realizar el efecto cebra sobre cada uno de los items de una lista
+first-child
+Permite establecer un estilo diferente para el primer campo de una lista

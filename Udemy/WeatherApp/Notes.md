@@ -461,3 +461,10 @@ nth-child(even)
  Permite realizar el efecto cebra sobre cada uno de los items de una lista
 first-child
 Permite establecer un estilo diferente para el primer campo de una lista
+
+HOC - High Order Components
+- Para validar la seguridad de nuestra aplicacion
+Control Accesos:
+    * Listar Clientes
+    * Ver Clientes
+Se va a aplicar previo al renderizado del componente

@@ -1,4 +1,4 @@
-Issues
+## Issues
 1.- Al seleccionar una ciudad para ver su pronostico extendido, se cargan los pronósticos respectivos, pero el clima actual de la ciudad se queda cargando
 Al activarse la acción SET_FORECAST_DATA, la propiedad weather desaparece en la opción seleccionada
 porque se esta estableciendo en null y en forecastData esta correctamente estableciendo los valores

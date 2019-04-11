@@ -1,6 +1,6 @@
--- Herramientas --
+## Herramientas
 
-Postman
+### Postman
 - Hasta hace muy poco formaba parte de la suite de aplicaciones que vienen junto con google chrome.
 - Actualmente, se puede descargar en forma individual
 - Esta herramienta nos permite la utilización de los distintos métodos de http:

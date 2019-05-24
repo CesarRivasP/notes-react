@@ -1,14 +1,10 @@
-Arrow Functions
-- No vincula sus propios 'this', 'arguments', 'super' o 'new Target'.
-- Estas funciones siempre son anónimas. No existe una definición de dicha función, sino que se asigna a una constante.
-- Son funciones no relacionadas con métodos, y no pueden ser usadas como constructores.
-
-Componentes
+# React
+## Componentes
 - Props es un nombre estándar a la hora de pasar parámetros en componentes.
 - Cuando se tiene un componente que retorna su contenido en una única linea, se pueden utilizar paréntesis para abarcar el contenido de la función.
 - Si esta función tiene mas de una linea, debe utilizar return para envolver dicho contenido.
 
-Destructuring
+### Destructuring
 - Es una tecnica que nos permite asignar valores a variables desde un objeto mas complejo, o desde arrays con varios elementos mediante la técnica de 'Object pattern'.
 - Se refiere a que cuando se tiene una propiedad con un nombre que luego se quiere asignar a una variable o constante con el mismo nombre que la propiedad, esta se puede asignar de forma directa utilizando dicha técnica (Destructuring).
 - Se tiene :

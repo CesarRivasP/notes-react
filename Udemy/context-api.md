@@ -12,3 +12,4 @@ Context API
 * Consumer: es donde se consumen los datos, o donde se accede a ellos o se utilizan las funciones.
 
 - Con context puedes pasar los datos desde el componente padre al componente hijo directamente, sin tener que ir de componente en componente.
+- Usualmente el provider va a rodear a algún componente, de esa forma estarán disponibles los datos que estén en provider van a estar disponibles para los componentes que rodean.

@@ -18,7 +18,7 @@
 ### Existe dos tipos de hooks
 - Basicos (uso en 100% de tus proyectos)
   + useState
-  + useEffect, que su función es reemplazar los métodos del ciclo de vida
+  + useEffect, que su función es reemplazar los métodos del ciclo de vida. Hace de tanto componentDidMount como de componentDidUpdate
 
 - Avanzados (es menos común su uso)
   + useContext
@@ -26,3 +26,5 @@
   + useCallback
   + useReducer
   + useMemo
+
+- Normalmente el state es un objeto, con los hooks un state puede ser cualquier tipo de dato, ya sea un string, array, booleano. También puede ser un objeto como lo era anteriormente.
